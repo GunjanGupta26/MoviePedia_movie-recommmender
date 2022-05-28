@@ -10,11 +10,12 @@ st.markdown(""" <style>
 </style> """, True)
 
 with open('style.css') as f:
-    st.markdown(f'<style>{f.read()}</style>',unsafe_allow_html=True)
+    st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 
 # function made to fetch poster from TMDB API
 def fetch_poster(movie_id):
-    response = requests.get('https://api.themoviedb.org/3/movie/{}?api_key=0108dc86ebfe744113ad8b08e230d9cb&language=en-US'.format(movie_id))
+    response = requests.get(
+        'https://api.themoviedb.org/3/movie/{}?api_key=0108dc86ebfe744113ad8b08e230d9cb&language=en-US'.format(movie_id))
     data = response.json()
     poster_path = data['poster_path']
     full_path = "https://image.tmdb.org/t/p/w500/" + poster_path
@@ -22,24 +23,27 @@ def fetch_poster(movie_id):
 
 
 st.title('MoviePedia')
-st.markdown("""<hr></hr>""",True)
+st.markdown("""<hr></hr>""", True)
 st.header('Movie Recommender')
 st.markdown(""" ##### _Find movies similar to the one you loved!_ :popcorn: """)
 st.write('')
 
- 
-model = pickle.load(open('model.pkl','rb'))
-model1 = pickle.load(open('model1.pkl','rb'))
-movies_dict = pickle.load(open('movies_dict.pkl','rb'))
+
+model = pickle.load(open('model.pkl', 'rb'))
+model1 = pickle.load(open('model1.pkl', 'rb'))
+movies_dict = pickle.load(open('movies_dict.pkl', 'rb'))
 movies = pd.DataFrame(movies_dict)
 
 # selectbox to select a movie from the list of movies
-selected_movie_name = st.selectbox(' Type or Select a movie from the dropdown below', movies['original_title'].values)
+selected_movie_name = st.selectbox(
+    ' Type or Select a movie from the dropdown below', movies['original_title'].values)
 
-# function made to take a movie and return the 5 movies that are returned from the ML model after applying the sorting algorithm 
-def recommend_overview_genre(selected_movie_name,s =model1):
-    index = movies[movies['original_title'] == selected_movie_name ].index.values[0]
-    sig_scores = sorted(list(enumerate(s[index])), reverse=True, key=lambda x: x[1])
+# function made to take a movie and return the 5 recommended movies that are returned from the ML model after applying the sorting algorithm
+def recommend_overview_genre(selected_movie_name, s=model1):
+    index = movies[movies['original_title'] ==
+                   selected_movie_name].index.values[0]
+    sig_scores = sorted(
+        list(enumerate(s[index])), reverse=True, key=lambda x: x[1])
     recommended_movie_names = []
     recommended_movie_poster = []
 
@@ -53,11 +57,13 @@ def recommend_overview_genre(selected_movie_name,s =model1):
         except:
             print("Poster Unavailable")
 
-    return recommended_movie_names,recommended_movie_poster
+    return recommended_movie_names, recommended_movie_poster
+
 
 # button
 if st.button('Show Recommendation'):
-    recommended_movie_names,recommended_movie_posters = recommend_overview_genre(selected_movie_name)
+    recommended_movie_names, recommended_movie_posters = recommend_overview_genre(
+        selected_movie_name)
 
 # five columns to display five movies' name and their posters
     col1, col2, col3, col4, col5 = st.columns(5)
@@ -91,5 +97,3 @@ if st.button('Show Recommendation'):
             st.image(recommended_movie_posters[4])
         except:
             print("Poster Unavailable")
-
-
