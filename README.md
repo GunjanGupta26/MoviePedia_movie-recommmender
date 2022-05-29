@@ -76,9 +76,6 @@ pip install -r requirements.txt --user
 pip install sklearn --user
 ```
 
-###  Download and unzip contents from GitHub repo
-
-Download and unzip contents from https://github.com/GunjanGupta26/MoviePedia_movie-recommmender/archive/refs/heads/main.zip
 
 ### Generating the PKL file
 
