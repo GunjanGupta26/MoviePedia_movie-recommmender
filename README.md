@@ -18,8 +18,6 @@ I have deployed my web application on streamlit.
 
 Link to my app : https://share.streamlit.io/gunjangupta26/moviepedia_movie-recommmender/main/app.py
 
-Link to my github repository :  https://github.com/GunjanGupta26/MoviePedia_movie-recommmender/tree/main
-
 
 
 <img src="./MoviePedia_imgs/MoviePedia_Homepage.png"
