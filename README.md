@@ -34,8 +34,17 @@ Link to my github repository :  https://github.com/GunjanGupta26/MoviePedia_movi
 
 
 ---
+## Algorithm Used
 
-## Installation 
+<b>Sigmoid Kernel</b>: This function is equivalent to a two-layer, perceptron model of the neural network, which is used as an activation function for artificial neurons.
+
+k(x, y) = tanh (alpha x^T y + c) 
+
+
+![sigmoid kernel graph](https://media.geeksforgeeks.org/wp-content/uploads/20200515150022/sigmoid.jpg)
+
+sigmoid kernel graph
+# Installation 
 
 1. Clone or download this repository to your local machine.
 
