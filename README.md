@@ -44,10 +44,17 @@ k(x, y) = tanh (alpha x^T y + c)
 sigmoid kernel graph
 # Installation 
 
-1. Clone or download this repository to your local machine.
+1. Clone or download this repository from the given drive link :  https://drive.google.com/drive/folders/1UCyjCQrO83UKJAw7Q3DWOz5jsXSLXDW_?usp=sharing to your local machine.
 
 2. Install all the libraries mentioned in the `requirements.txt` file.
 
+## Prerequisites
+
+make sure following are installed
+
+pip
+
+ 
 
 # Reproducing this web app
 To recreate this web app on your own computer, do the following.
@@ -57,13 +64,16 @@ To recreate this web app on your own computer, do the following.
 Download requirements.txt file
 
 ```
-wget https://github.com/GunjanGupta26/MoviePedia_movie-recommmender/blob/main/requirements.txt
+ https://github.com/GunjanGupta26/MoviePedia_movie-recommmender/blob/main/requirements.txt
 
 ```
 
 Pip install libraries
 ```
-pip install -r requirements.txt
+pip install -r requirements.txt --user
+```
+```
+pip install sklearn --user
 ```
 
 ###  Download and unzip contents from GitHub repo
@@ -79,5 +89,5 @@ The movie recommendation model used in this web app will firstly have to be gene
 Run the following command in your terminal,
 
 ```
-streamlit run app.py
+py -m streamlit run app.py
 ```
