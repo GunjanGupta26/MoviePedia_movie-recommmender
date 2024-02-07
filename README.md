@@ -16,7 +16,7 @@ The posters of the movies are fetched using an API by TMDB, https://www.themovie
 
 I have deployed my web application on streamlit.
 
-Link to my app : https://share.streamlit.io/gunjangupta26/moviepedia_movie-recommmender/main/app.py
+
 
 
 
